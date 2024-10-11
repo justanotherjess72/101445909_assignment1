@@ -88,7 +88,7 @@ exports.updateEmployee = async (req, res) => {
 
 // Delete an employee
 exports.deleteEmployee = async (req, res) => {
-    const { eid } = req.params; // Get employee ID from the route parameters
+    const { eid } = req.params;
 
     try {
         const employee = await Employee.findByIdAndDelete(eid);
