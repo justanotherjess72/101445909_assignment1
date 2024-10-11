@@ -1,4 +1,4 @@
-const Employee = require('../src/models/Employee'); 
+const Employee = require('../models/Employee'); 
 
 // Get all employees
 exports.getAllEmployees = async (req, res) => {
