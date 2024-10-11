@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: your-service-name
+    name: COMP3123_Assignment1
     env: node
     buildCommand: npm install
     startCommand: node src/api/index.js
