@@ -1,10 +1,10 @@
 const express = require('express');
-const employeeController = require('../controllers/employeeController'); // Corrected import
+const employeeController = require('../controllers/employeeController');
 
 const router = express.Router();
 
 // Get all employees
-router.get('/employees', employeeController.getAllEmployees); // No need for '/api/controllers'
+router.get('/employees', employeeController.getAllEmployees);
 
 // Create a new employee
 router.post('/employees', employeeController.createEmployee);

@@ -1,4 +1,4 @@
-const User = require('../api/models/User'); // Adjust the path as needed
+const User = require('../models/User'); 
 const bcrypt = require('bcryptjs');
 
 // User signup

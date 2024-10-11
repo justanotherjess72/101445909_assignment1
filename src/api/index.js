@@ -6,7 +6,6 @@ require('dotenv').config();
 
 const app = express();
 
-
 app.use(express.json()); 
 
 // Connect to MongoDB
@@ -32,7 +31,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Root route (optional)
+// Root route
 app.get('/', (req, res) => {
     res.send('Welcome to the API!');
 });
