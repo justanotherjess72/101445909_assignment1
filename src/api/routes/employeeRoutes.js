@@ -1,10 +1,10 @@
 const express = require('express');
-const employeeController = require('..src/api/controllers/employeeController');
+const employeeController = require('../controllers/employeeController'); // Corrected import
 
 const router = express.Router();
 
 // Get all employees
-router.get('/employees', employeeController.getAllEmployees);
+router.get('/employees', employeeController.getAllEmployees); // No need for '/api/controllers'
 
 // Create a new employee
 router.post('/employees', employeeController.createEmployee);
@@ -17,6 +17,5 @@ router.put('/employees/:eid', employeeController.updateEmployee);
 
 // Delete an employee
 router.delete('/employees/:eid', employeeController.deleteEmployee);
-
 
 module.exports = router;
