@@ -1,5 +1,5 @@
 const express = require('express');
-const employeeController = require('../controllers/employeeController'); // Adjust the path as needed
+const employeeController = require('../controllers/employeeController');
 
 const router = express.Router();
 
@@ -16,6 +16,7 @@ router.get('/employees/:eid', employeeController.getEmployeeById);
 router.put('/employees/:eid', employeeController.updateEmployee);
 
 // Delete an employee
-router.delete('/employees', employeeController.deleteEmployee);
+router.delete('/employees/:eid', employeeController.deleteEmployee);
+
 
 module.exports = router;

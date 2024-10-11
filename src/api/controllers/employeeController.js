@@ -1,4 +1,4 @@
-const Employee = require('../models/Employee'); // Adjust the path as needed
+const Employee = require('../src/models/Employee'); 
 
 // Get all employees
 exports.getAllEmployees = async (req, res) => {
@@ -18,7 +18,15 @@ exports.createEmployee = async (req, res) => {
     const { first_name, last_name, email, position, salary, date_of_joining, department } = req.body;
 
     try {
-        const newEmployee = new Employee({ first_name, last_name, email, position, salary, date_of_joining, department });
+        const newEmployee = new Employee({ 
+            first_name, 
+            last_name, 
+            email, 
+            position, 
+            salary, 
+            date_of_joining, 
+            department 
+        });
         await newEmployee.save();
         res.status(201).json({
             message: "Employee created successfully.",
@@ -80,7 +88,7 @@ exports.updateEmployee = async (req, res) => {
 
 // Delete an employee
 exports.deleteEmployee = async (req, res) => {
-    const { eid } = req.query;
+    const { eid } = req.params; // Get employee ID from the route parameters
 
     try {
         const employee = await Employee.findByIdAndDelete(eid);

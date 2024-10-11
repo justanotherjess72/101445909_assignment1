@@ -2,16 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes'); 
 const employeeRoutes = require('./routes/employeeRoutes'); 
-const authMiddleware = require('./middleware/auth'); // Import the auth middleware
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 
 const app = express();
 
-// Middleware
+
 app.use(express.json()); 
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://admin:admin@cluster0.fhqxk.mongodb.net/comp3123_assigment1', { 
+mongoose.connect(process.env.MONGODB_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 })
@@ -33,8 +32,10 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start the server
-const SERVER_PORT = process.env.SERVER_PORT || 3000;
-app.listen(SERVER_PORT, () => {
-    console.log(`Server is running on port ${SERVER_PORT}`);
+// Root route (optional)
+app.get('/', (req, res) => {
+    res.send('Welcome to the API!');
 });
+
+// Export the app for Vercel
+module.exports = app;
